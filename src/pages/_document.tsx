@@ -4,7 +4,6 @@ export default class MyDocument extends Document {
 	render() {
 		return <Html>
 			<Head>
-				<title>KJournal</title>
 				<link rel="icon" href="/favicon.ico" />
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link rel="preconnect" href="https://fonts.gstatic.com" />
