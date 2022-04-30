@@ -27,7 +27,6 @@ export const WriteForm = ({ title }: WriteFormProps) => {
 			<Button variant="contained" color="primary">
 				Опубликовать
 			</Button>
-
 		</div>
 	)
 }
