@@ -4,10 +4,10 @@ import { WriteForm } from '../components/WriteForm';
 
 const WritePage: NextPage = () => {
 	return (
-		<MainLayout className='main-layout-white' hideComments hideMenu>
-			<WriteForm/>
+		<MainLayout className="main-layout-white" hideComments hideMenu>
+			<WriteForm />
 		</MainLayout>
-	)
-}
+	);
+};
 
 export default WritePage;

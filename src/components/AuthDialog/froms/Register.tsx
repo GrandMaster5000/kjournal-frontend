@@ -10,12 +10,15 @@ import { UserApi } from '../../../utils/api';
 import { CreateUserDto } from '../../../utils/api/types';
 import { RegisterFormSchema } from '../../../utils/schemas/loginValidation';
 import { FormField } from '../../FormField';
+import { useAppDispatch } from '../../../redux/hooks';
+import { setUserData } from '../../../redux/slices/user.slice';
 
 interface RegisterProps {
 	setFormType: Dispatch<SetStateAction<FormType>>;
 }
 
 export const Register = ({ setFormType }: RegisterProps) => {
+	const dispatch = useAppDispatch();
 	const [errorMessage, setErrorMessage] = useState('');
 	const form = useForm({
 		mode: 'onChange',
@@ -30,6 +33,7 @@ export const Register = ({ setFormType }: RegisterProps) => {
 				path: '/',
 			});
 			setErrorMessage('');
+			dispatch(setUserData(data));
 		} catch (e) {
 			console.warn('Register error', e);
 			setErrorMessage(e.response.data.message);

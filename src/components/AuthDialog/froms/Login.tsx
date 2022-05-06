@@ -10,12 +10,15 @@ import { FormField } from '../../FormField';
 import { LoginUserDto } from '../../../utils/api/types';
 import { UserApi } from '../../../utils/api';
 import { setCookie } from 'nookies';
+import { useAppDispatch } from '../../../redux/hooks';
+import { setUserData } from '../../../redux/slices/user.slice';
 
 interface LoginProps {
 	setFormType: Dispatch<SetStateAction<FormType>>;
 }
 
 export const Login = ({ setFormType }: LoginProps) => {
+	const dispatch = useAppDispatch();
 	const [errorMessage, setErrorMessage] = useState('');
 	const form = useForm({
 		mode: 'onChange',
@@ -30,6 +33,7 @@ export const Login = ({ setFormType }: LoginProps) => {
 				path: '/',
 			});
 			setErrorMessage('');
+			dispatch(setUserData(data));
 		} catch (e) {
 			console.warn('Register error', e);
 			setErrorMessage(e.response.data.message);

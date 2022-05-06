@@ -1,9 +1,7 @@
-import { MainLayout } from '../layouts/MainLayout'
+import { MainLayout } from '../layouts/MainLayout';
 
 const Follows = () => {
-	return (
-		<MainLayout></MainLayout>
-	)
-}
+	return <MainLayout></MainLayout>;
+};
 
 export default Follows;

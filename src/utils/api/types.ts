@@ -7,7 +7,12 @@ export interface CreateUserDto extends LoginUserDto {
 	fullName: string;
 }
 
-export interface ResponseUser {
+export type ResponseUser = {
+	createdAt: string;
+	email: string;
+	fullName: string;
+	id: number;
+	commentsCount?: number;
 	access_token: string;
-}
-
+	updatedAt: string;
+};

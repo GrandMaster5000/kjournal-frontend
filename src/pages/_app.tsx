@@ -7,16 +7,16 @@ import { Header } from '../components/Header';
 import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <MuiThemeProvider theme={theme}>
-      <Head>
-        <title>KJoutnal</title>
-      </Head>
-      <CssBaseline />
-      <Header />
-      <Component {...pageProps} />
-    </MuiThemeProvider>
-  );
+	return (
+		<MuiThemeProvider theme={theme}>
+			<Head>
+				<title>KJoutnal</title>
+			</Head>
+			<CssBaseline />
+			<Header />
+			<Component {...pageProps} />
+		</MuiThemeProvider>
+	);
 }
 
 export default MyApp;
