@@ -1,10 +1,11 @@
-import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
-import { theme } from '../../theme';
-
 import '../styles/globals.scss';
 import 'macro-css';
-import { Header } from '../components/Header';
 import Head from 'next/head';
+
+import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
+import { theme } from '../../theme';
+import { Header } from '../components/Header';
+import { wrapper } from '../redux/store';
 
 function MyApp({ Component, pageProps }) {
 	return (
@@ -19,4 +20,4 @@ function MyApp({ Component, pageProps }) {
 	);
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);
