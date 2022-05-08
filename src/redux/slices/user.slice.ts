@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ResponseUser } from '../../utils/api/types';
+import { ResponseUser, User } from '../../utils/api/types';
 import { RootState } from '../store';
 import { HYDRATE } from 'next-redux-wrapper';
 
@@ -15,8 +15,11 @@ export const userSlice = createSlice({
 	name: 'user',
 	initialState,
 	reducers: {
-		setUserData: (state, action: PayloadAction<ResponseUser>) => {
-			state.data = action.payload;
+		setUserData: (state, action: PayloadAction<ResponseUser | User>) => {
+			state.data = {
+				...state.data,
+				...action.payload,
+			};
 		},
 	},
 	extraReducers: {

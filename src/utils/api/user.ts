@@ -1,7 +1,11 @@
 import { AxiosInstance } from 'axios';
-import { CreateUserDto, LoginUserDto, ResponseUser } from './types';
+import { CreateUserDto, LoginUserDto, ResponseUser, User } from './types';
 
 export const UserApi = (instance: AxiosInstance) => ({
+	async getAll(): Promise<User[]> {
+		const { data } = await instance.get<User[]>('/user');
+		return data;
+	},
 	async register(dto: CreateUserDto): Promise<ResponseUser> {
 		const { data } = await instance.post<ResponseUser>('/auth/register', dto);
 		return data;
@@ -10,8 +14,8 @@ export const UserApi = (instance: AxiosInstance) => ({
 		const { data } = await instance.post<ResponseUser>('/auth/login', dto);
 		return data;
 	},
-	async getMe(): Promise<ResponseUser> {
-		const { data } = await instance.get<ResponseUser>('/user/me');
+	async getMe(): Promise<User> {
+		const { data } = await instance.get<User>('/user/me');
 		return data;
 	},
 });
