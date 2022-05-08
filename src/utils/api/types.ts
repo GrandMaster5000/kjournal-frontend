@@ -1,3 +1,5 @@
+import { OutputBlockData } from '@editorjs/editorjs';
+
 export interface LoginUserDto {
 	email: string;
 	password: string;
@@ -8,11 +10,26 @@ export interface CreateUserDto extends LoginUserDto {
 }
 
 export type ResponseUser = {
-	createdAt: string;
 	email: string;
 	fullName: string;
 	id: number;
 	commentsCount?: number;
 	access_token: string;
-	updatedAt: string;
+	createdAt: Date;
+	updatedAt: Date;
 };
+
+export interface CreatePostDto {
+	title: string;
+	body: OutputBlockData[];
+}
+
+export interface PostItem extends CreatePostDto {
+	id: number;
+	views: number;
+	tags: string;
+	decription: string;
+	user: ResponseUser;
+	createdAt: Date;
+	updatedAt: Date;
+}

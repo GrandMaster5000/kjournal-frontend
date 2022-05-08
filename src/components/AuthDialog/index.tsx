@@ -1,13 +1,5 @@
 import React from 'react';
-import { 
-	Button, 
-	Dialog, 
-	DialogContent, 
-	DialogContentText, 
-	Divider, 
-	TextField, 
-	Typography 
-} from '@material-ui/core';
+import { Dialog, DialogContent, DialogContentText, Typography } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 import styles from './AuthDialog.module.scss';
@@ -20,7 +12,7 @@ interface AuthDialogProps {
 	visible: boolean;
 }
 
-export type FormType = 'main' | 'login' | 'register'
+export type FormType = 'main' | 'login' | 'register';
 
 export const AuthDialog: React.FC<AuthDialogProps> = ({ onClose, visible }) => {
 	const [formType, setFormType] = React.useState<FormType>('main');
@@ -39,9 +31,9 @@ export const AuthDialog: React.FC<AuthDialogProps> = ({ onClose, visible }) => {
 								</p>
 							)}
 						</Typography>
-						{formType === 'main' && <Main setFormType={setFormType}/>}
-						{formType === 'login' && <Login setFormType={setFormType}/>}
-						{formType === 'register' && <Register setFormType={setFormType}/>}
+						{formType === 'main' && <Main setFormType={setFormType} />}
+						{formType === 'login' && <Login setFormType={setFormType} />}
+						{formType === 'register' && <Register setFormType={setFormType} />}
 					</div>
 				</DialogContentText>
 			</DialogContent>

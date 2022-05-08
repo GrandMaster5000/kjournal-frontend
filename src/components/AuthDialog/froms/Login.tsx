@@ -8,10 +8,10 @@ import { FormType } from '..';
 import { LoginFormSchema } from '../../../utils/schemas/loginValidation';
 import { FormField } from '../../FormField';
 import { LoginUserDto } from '../../../utils/api/types';
-import { UserApi } from '../../../utils/api';
 import { setCookie } from 'nookies';
 import { useAppDispatch } from '../../../redux/hooks';
 import { setUserData } from '../../../redux/slices/user.slice';
+import { Api } from '../../../utils/api';
 
 interface LoginProps {
 	setFormType: Dispatch<SetStateAction<FormType>>;
@@ -27,7 +27,7 @@ export const Login = ({ setFormType }: LoginProps) => {
 
 	const onSubmit = async (dto: LoginUserDto) => {
 		try {
-			const data = await UserApi.login(dto);
+			const data = await Api().user.login(dto);
 			setCookie(null, 'ktoken', data.access_token, {
 				maxAge: 30 * 24 * 60 * 60,
 				path: '/',
